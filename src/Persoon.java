@@ -38,13 +38,13 @@ public class Persoon {
                 '}';
     }
 
-//    public Game zoekGameOpNaam(String s) {
-//        for (Game g : this.games) {
-//            if (g.getNaam().equals(s)) {
-//                return g;
-//            }
-//        }
-//        return null;
-//    }
+    public Game zoekGameOpNaam(String s) {
+        for (Game g : this.games) {
+            if (g.getNaam().equals(s)) {
+                return g;
+            }
+        }
+        return null;
+    }
 }
 
