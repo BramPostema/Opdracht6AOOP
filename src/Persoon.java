@@ -1,7 +1,9 @@
+import java.util.ArrayList;
+
 public class Persoon {
     private String naam;
     private double budget;
-
+    private ArrayList<Game> games= new ArrayList<>();
     public Persoon(String nm, double bud){
         this.naam = nm;
         this.budget = bud;
@@ -11,18 +13,21 @@ public class Persoon {
         return budget;
     }
     public boolean koop(Game g){
-    double waarde = g.huidigeWaarde();
-    if (waarde>getBudget()) {
-        return false;
-    }else{
-        return true;
-    }
-
+        double waarde = g.huidigeWaarde();
+        if (waarde>getBudget()) {
+            return false;
+        }else{
+            this.games.add(g);
+            return true;
+        }
     }
     public boolean verkoop(Game g, Persoon koper){
-        boolean verkocht= true;
-//        if()
-    return verkocht;
+        if(this.games.remove(g)){
+            koper.games.add(g);
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
@@ -32,4 +37,14 @@ public class Persoon {
                 ", budget=" + budget +
                 '}';
     }
+
+//    public Game zoekGameOpNaam(String s) {
+//        for (Game g : this.games) {
+//            if (g.getNaam().equals(s)) {
+//                return g;
+//            }
+//        }
+//        return null;
+//    }
 }
+

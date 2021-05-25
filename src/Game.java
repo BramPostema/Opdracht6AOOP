@@ -15,22 +15,27 @@ public class Game {
         return naam;
     }
     public double huidigeWaarde(){
-    int huidigJaar = LocalDate.now().getYear();
-    int jarenOud= huidigJaar - releaseJaar;
-    double huidigeWaarde = nieuwprijs * (0.30*jarenOud);
-    return huidigeWaarde;
+        int huidigJaar = LocalDate.now().getYear();
+        int jarenOud= huidigJaar - releaseJaar;
+        double huidigeWaarde = nieuwprijs * (0.30*jarenOud);
+        return huidigeWaarde;
     }
-    public boolean equals(Object andereObject){
 
-    return true;
+    public int getReleaseJaar() {
+        return releaseJaar;
+    }
+
+    public boolean equals(Game andereObject){
+        if(andereObject.getNaam().equals(this.getNaam()) && andereObject.getReleaseJaar()==this.getReleaseJaar()){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     @Override
     public String toString() {
-        return "Game{" +
-                "naam='" + naam + '\'' +
-                ", releaseJaar=" + releaseJaar +
-                ", nieuwprijs=" + nieuwprijs +
-                '}';
+        return "Game: "+ naam +
+                " releaseJaar=" + releaseJaar;
     }
 }
