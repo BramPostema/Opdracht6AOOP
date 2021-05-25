@@ -33,18 +33,20 @@ public class Persoon {
     @Override
     public String toString() {
         return "Persoon{" +
-                "naam='" + naam + '\'' +
-                ", budget=" + budget +
+                "naam='" + naam +
+        ", budget=" + budget +
                 '}';
     }
 
-    public Game zoekGameOpNaam(String s) {
-        for (Game g : this.games) {
-            if (g.getNaam().equals(s)) {
-                return g;
+    public ArrayList<Game> bepaalGamesNietInBezit(ArrayList<Game> gamesTeKoop){
+        ArrayList<Game> nogNietInBezit = new ArrayList<>();
+        for ( Game game:gamesTeKoop){
+            if (this.games.indexOf(game)==-1 ){
+                nogNietInBezit.add(game);
             }
         }
-        return null;
+        return nogNietInBezit;
     }
-}
 
+
+}
